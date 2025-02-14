@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #87CEEB 0%, #b4e3ff 100%);
+    overflow: hidden;
+}
+
+#mailButton {
+    display: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.pigeon {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    left: -150px;
+    top: -150px;
+    opacity: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pigeon.animate {
+    animation: flyIn 2.5s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+.pigeon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.scroll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    height: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 12px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 2px rgba(224, 224, 224, 0.8);
+    animation: floatLetter 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    background: 
+        linear-gradient(90deg, transparent 0%, transparent 49%, rgba(0, 0, 0, 0.03) 50%, transparent 51%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, transparent 49%, rgba(0, 0, 0, 0.03) 50%, transparent 51%, transparent 100%);
+    background-size: 32px 32px;
+}
+
+.scroll-content p {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: #2c3e50;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+    width: 100%;
+}
+
+.scroll.animate {
+    animation: unfoldScroll 1s forwards;
+}
+
+.scroll-content.animate {
+    animation: showMessage 1s forwards;
+}
+
+.clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    opacity: 0.9;
+    filter: blur(1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 200px;
+    height: 60px;
+    top: 20%;
+    left: 20%;
+    animation: floatCloud 20s linear infinite;
+}
+
+.cloud1::before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 40px;
+}
+
+.cloud1::after {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 90px;
+}
+
+.cloud2 {
+    width: 140px;
+    height: 40px;
+    top: 40%;
+    left: 60%;
+    animation: floatCloud 15s linear infinite;
+    animation-delay: -5s;
+}
+
+.cloud2::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 30px;
+}
+
+.cloud2::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 70px;
+}
+
+.cloud3 {
+    width: 180px;
+    height: 50px;
+    top: 30%;
+    left: 40%;
+    animation: floatCloud 25s linear infinite;
+    animation-delay: -10s;
+}
+
+.cloud3::before {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 35px;
+}
+
+.cloud3::after {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 80px;
+}
+
+.cloud4 {
+    width: 160px;
+    height: 45px;
+    top: 60%;
+    left: 30%;
+    animation: floatCloud 18s linear infinite;
+    animation-delay: -7s;
+}
+
+.cloud4::before {
+    width: 65px;
+    height: 65px;
+    top: -32px;
+    left: 32px;
+}
+
+.cloud4::after {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 75px;
+}
+
+@keyframes floatCloud {
+    from {
+        transform: translateX(-200%);
+    }
+    to {
+        transform: translateX(200%);
+    }
+}
+
+@keyframes flyIn {
+    0% {
+        left: -150px;
+        top: -150px;
+        transform: scale(0.2) rotate(15deg);
+        opacity: 0;
+    }
+    20% {
+        left: 10%;
+        top: -50px;
+        transform: scale(0.4) rotate(-10deg);
+        opacity: 1;
+    }
+    40% {
+        left: 30%;
+        top: 20%;
+        transform: scale(0.6) rotate(10deg);
+        opacity: 1;
+    }
+    100% {
+        left: 45%;
+        top: 45%;
+        transform: scale(0.8) rotate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes floatLetter {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    25% {
+        transform: translate(calc(-50% + 8px), calc(-50% - 5px));
+    }
+    50% {
+        transform: translate(-50%, -50%);
+    }
+    75% {
+        transform: translate(calc(-50% - 8px), calc(-50% + 5px));
+    }
+}
+
+@keyframes unfoldScroll {
+    0% {
+        height: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.98);
+    }
+    100% {
+        height: 180px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes showMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    width: 80px;
+    height: 80px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 60px #FFD700;
+    animation: sunGlow 4s ease-in-out infinite;
+}
+
+.birds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.bird {
+    position: absolute;
+    font-size: 20px;
+    color: #2c3e50;
+    opacity: 0.6;
+    animation: flyBird 20s linear infinite;
+}
+
+.bird:nth-child(1) { top: 20%; left: -20px; animation-delay: 0s; }
+.bird:nth-child(2) { top: 35%; left: -20px; animation-delay: -5s; }
+.bird:nth-child(3) { top: 50%; left: -20px; animation-delay: -10s; }
+
+@keyframes sunGlow {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes flyBird {
+    from { transform: translateX(-100px) rotate(10deg); }
+    to { transform: translateX(calc(100vw + 100px)) rotate(-10deg); }
+}
+
+#startButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+#startButton:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide pigeon and scroll initially */
+.pigeon, .scroll {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes flyAway {
+    0% {
+        left: 45%;
+        top: 45%;
+        transform: scale(0.8) rotate(0);
+        opacity: 1;
+    }
+    20% {
+        left: 70%;
+        top: 30%;
+        transform: scale(0.7) rotate(15deg);
+        opacity: 1;
+    }
+    40% {
+        left: 90%;
+        top: 50%;
+        transform: scale(0.6) rotate(-10deg);
+        opacity: 1;
+    }
+    60% {
+        left: 60%;
+        top: -50px;
+        transform: scale(0.5) rotate(10deg);
+        opacity: 1;
+    }
+    80% {
+        left: 30%;
+        top: -100px;
+        transform: scale(0.4) rotate(-5deg);
+        opacity: 0.8;
+    }
+    90% {
+        left: 0;
+        top: -120px;
+        transform: scale(0.3) rotate(5deg);
+        opacity: 0.5;
+    }
+    100% {
+        left: -150px;
+        top: -150px;
+        transform: scale(0.2) rotate(0);
+        opacity: 0;
+    }
+}
