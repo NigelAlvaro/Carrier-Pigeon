@@ -23,8 +23,8 @@ body {
 
 .pigeon {
     position: absolute;
-    width: 500px;
-    height: 300px;
+    width: 400px;  /* Increased from 300px */
+    height: 240px;  /* Increased from 180px */
     left: -150px;
     top: -150px;
     opacity: 0;
@@ -234,18 +234,18 @@ body {
     }
     20% {
         left: 10%;
-        top: -50px;
+        top: 20%;
         transform: scale(0.4) rotate(-10deg);
         opacity: 1;
     }
     40% {
         left: 30%;
-        top: 20%;
+        top: 35%;
         transform: scale(0.6) rotate(10deg);
         opacity: 1;
     }
     100% {
-        left: 45%;
+        left: 50%;
         top: 45%;
         transform: scale(0.8) rotate(0);
         opacity: 1;
@@ -366,40 +366,34 @@ body::before {
 
 @keyframes flyAway {
     0% {
-        left: 45%;
+        left: 50%;
         top: 45%;
         transform: scale(0.8) rotate(0);
         opacity: 1;
     }
     20% {
-        left: 70%;
-        top: 30%;
-        transform: scale(0.7) rotate(15deg);
+        left: 60%;
+        top: 60%;
+        transform: scale(0.6) rotate(15deg);
         opacity: 1;
     }
     40% {
-        left: 90%;
-        top: 50%;
-        transform: scale(0.6) rotate(-10deg);
+        left: 80%;
+        top: 70%;
+        transform: scale(0.4) rotate(-10deg);
         opacity: 1;
     }
     60% {
         left: 60%;
-        top: -50px;
+        top: 20%;
         transform: scale(0.5) rotate(10deg);
         opacity: 1;
     }
     80% {
         left: 30%;
-        top: -100px;
-        transform: scale(0.4) rotate(-5deg);
+        top: -20px;
+        transform: scale(0.3) rotate(-5deg);
         opacity: 0.8;
-    }
-    90% {
-        left: 0;
-        top: -120px;
-        transform: scale(0.3) rotate(5deg);
-        opacity: 0.5;
     }
     100% {
         left: -150px;
@@ -413,8 +407,8 @@ body::before {
 
 @media screen and (max-width: 768px) {
     .pigeon {
-        width: 300px;  /* Smaller pigeon for mobile */
-        height: 180px;
+        width: 280px;  /* Increased from 200px */
+        height: 168px;  /* Increased from 120px */
     }
 
     .scroll {
@@ -460,18 +454,18 @@ body::before {
         }
         20% {
             left: 5%;
-            top: -30px;
+            top: 20%;
             transform: scale(0.4) rotate(-10deg);
             opacity: 1;
         }
         40% {
             left: 25%;
-            top: 15%;
+            top: 35%;
             transform: scale(0.6) rotate(10deg);
             opacity: 1;
         }
         100% {
-            left: 40%;
+            left: 50%;
             top: 45%;
             transform: scale(0.8) rotate(0);
             opacity: 1;
@@ -480,33 +474,33 @@ body::before {
 
     @keyframes flyAway {
         0% {
-            left: 40%;
+            left: 50%;
             top: 45%;
             transform: scale(0.8) rotate(0);
             opacity: 1;
         }
         20% {
             left: 60%;
-            top: 30%;
-            transform: scale(0.7) rotate(15deg);
+            top: 60%;
+            transform: scale(0.6) rotate(15deg);
             opacity: 1;
         }
         40% {
             left: 80%;
-            top: 40%;
-            transform: scale(0.6) rotate(-10deg);
+            top: 70%;
+            transform: scale(0.4) rotate(-10deg);
             opacity: 1;
         }
         60% {
-            left: 50%;
-            top: -30px;
+            left: 60%;
+            top: 20%;
             transform: scale(0.5) rotate(10deg);
             opacity: 1;
         }
         80% {
-            left: 20%;
-            top: -80px;
-            transform: scale(0.4) rotate(-5deg);
+            left: 30%;
+            top: -20px;
+            transform: scale(0.3) rotate(-5deg);
             opacity: 0.8;
         }
         100% {
@@ -521,8 +515,8 @@ body::before {
 /* For very small screens */
 @media screen and (max-width: 380px) {
     .pigeon {
-        width: 250px;
-        height: 150px;
+        width: 220px;  /* Increased from 160px */
+        height: 132px;  /* Increased from 96px */
     }
 
     .scroll {
@@ -538,8 +532,8 @@ body::before {
 /* For landscape orientation */
 @media screen and (max-height: 600px) and (orientation: landscape) {
     .pigeon {
-        width: 200px;
-        height: 120px;
+        width: 240px;  /* Increased from 200px */
+        height: 144px;  /* Increased from 120px */
     }
 
     .scroll {
